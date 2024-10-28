@@ -1,0 +1,8 @@
+<p> lecturers</p>
+<div *ngFor="let lecturer of lecturers" style="background-color:red; width:100px; height: 100px;">
+    
+    <p class="lecturerName">{{lecturer.name}}</p>
+    <p class="lecturerDepartment">{{lecturer.department}}</p>
+    <button [disabled] = "lecturer.status=='taken' || lecturer.status=='pending' " (click)="sendRequest()">Request</button>
+  
+</div>
