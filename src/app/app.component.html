@@ -1,14 +1,23 @@
+<body>
+  
 
+<div class="header-wrapper">
+<div class="logo">
   <p class="title" href="/">{{ title }}</p>
+</div>
 
-  <div class="header-wrapper">
+<div class="btn">
+  <button (click)="loginRedirect()">Війти</button>
+</div>
 
-    <a [routerLink]="['home']" class="linker">Головна</a>
-    <a [routerLink]="['lecturers']" class="linker">Викладачі</a>
-    <a [routerLink]="['profile']" class="linker">Профіль</a>
-  </div>
+    <a [routerLink]="['home']"  class="linker">Головна</a>
+    <a [routerLink]="['lecturers']"  class="linker">Викладачі</a>
+    <a [routerLink]="['profile']"  class="linker">Профіль</a>
 
-  <button (click)="loginRedirect()">Login using Redirect</button>
+    
+</div>
+
+
 
 <!--
 
@@ -33,3 +42,5 @@
   <router-outlet></router-outlet>
   }
 </div>
+
+</body>
