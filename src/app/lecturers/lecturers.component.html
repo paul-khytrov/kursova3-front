@@ -1,8 +1,16 @@
-<p> lecturers</p>
-<div *ngFor="let lecturer of lecturers" style="background-color:red; width:100px; height: 100px;">
-    
-    <p class="lecturerName">{{lecturer.name}}</p>
-    <p class="lecturerDepartment">{{lecturer.department}}</p>
-    <button [disabled] = "lecturer.status=='taken' || lecturer.status=='pending' " (click)="sendRequest()">Request</button>
+<body>
+    <p class="title">Викладачі</p>
+    <div class="lecturers-container">
+      <div *ngFor="let lecturer of lecturers" class="lecturers">
+        <div class="photo">
+            <img src="\images\photo1.jpg" alt="">
+        </div>
+        <div class="inf">  
+          <p class="lecturerName">{{ lecturer.name }}</p>
+          <p class="lecturerDepartment">{{ lecturer.department }}</p>
+          <button [disabled]="lecturer.status=='taken' || lecturer.status=='pending'" (click)="sendRequest()">Надіслати запит</button>
+        </div>
+      </div>
+    </div>
+  </body>
   
-</div>
