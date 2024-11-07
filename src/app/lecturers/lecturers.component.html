@@ -13,7 +13,7 @@
         <div class="inf">  
           <p class="lecturerName">{{ lecturer.name }}</p>
           <p class="lecturerDepartment">{{ lecturer.department }}</p>
-          <button [disabled]="lecturer.status=='taken' || lecturer.status=='pending'" (click)="sendRequest()">Надіслати запит</button>
+          <button [disabled]="lecturer.status != 'free'" (click)="sendRequest()" [ngClass]="lecturer.status">Надіслати запит</button>
         </div>
       </div>
     </div>
