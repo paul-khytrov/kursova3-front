@@ -1,15 +1,18 @@
 
 import { NgModule } from "@angular/core";
 
-
-import { routes } from "./app.routes";
-import { AppComponent } from "./app.component";
-import { HomeComponent } from "./home/home.component";
 import { InteractionType } from "@azure/msal-browser";
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { MultiSelectDropdownComponent } from './multi-select-dropdown/multi-select-dropdown.component';
+
+
 
 import { MsalModule, MsalRedirectComponent, MsalService, MsalInterceptor, MsalGuard, MSAL_INSTANCE } from "@azure/msal-angular";
 import { PublicClientApplication } from "@azure/msal-browser";
+import { LecturersComponent } from "./lecturers/lecturers.component";
+
+
+
 
 const isIE =
   window.navigator.userAgent.indexOf("MSIE ") > -1 ||
@@ -21,16 +24,17 @@ const isIE =
         clientId: "ea250112-1b5a-4e78-9472-d2d6d5f1efb5", // Application (client) ID from the app registration
         authority:
           "https://login.microsoftonline.com/70a28522-969b-451f-bdb2-abfea3aaa5bf", // The Azure cloud instance and the app's sign-in audience (tenant ID, common, organizations, or consumers)
-        redirectUri: "msalea250112-1b5a-4e78-9472-d2d6d5f1efb5://auth", // This is your redirect URI
+        redirectUri: "msalea250112-1b5a-4e78-9472-d2d6d5f1efb5://auth", // This is your redirect URI 
       }
     });
   }
 
 
 @NgModule({
-  declarations: [],
+  declarations: [MultiSelectDropdownComponent, LecturersComponent],
   imports: [
-
+    
+    MultiSelectDropdownComponent,
     MsalModule.forRoot(
       MSALInstanceFactory(),
       {
@@ -62,5 +66,6 @@ const isIE =
     },
     MsalGuard],
   bootstrap: [MsalRedirectComponent],
+
 })
 export class AppModule { }

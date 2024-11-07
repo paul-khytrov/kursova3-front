@@ -19,6 +19,15 @@ import { Subject } from 'rxjs';
 import { filter, takeUntil } from 'rxjs/operators';
 import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home/home.component';
+import { IpcRenderer } from 'electron';
+import { IPublicClientApplication, PublicClientApplication } from '@azure/msal-browser';
+
+
+
+
+
+
+
 
 
 @Component({
@@ -30,29 +39,37 @@ import { HomeComponent } from './home/home.component';
     CommonModule,
     MsalModule,
     RouterOutlet,
-    RouterLink
+    RouterLink,
   ],
 })
 export class AppComponent implements OnInit, OnDestroy {
+
+
   title = 'Курсова ЛНУ';
   isIframe = false;
   loginDisplay = false;
   private readonly _destroying$ = new Subject<void>();
 
   constructor(
-    @Inject(MSAL_GUARD_CONFIG) private msalGuardConfig: MsalGuardConfiguration,
-    private authService: MsalService,
-    private msalBroadcastService: MsalBroadcastService
-  ) {}
-
-  loggedIn = true;
-  
-  ngOnInit(): void {
 
     
 
 
+    @Inject(MSAL_GUARD_CONFIG) private msalGuardConfig: MsalGuardConfiguration,
+    private authService: MsalService,
+    private msalBroadcastService: MsalBroadcastService,
+    
+  ) {}
 
+
+
+  
+  loggedIn = true;
+  
+  ngOnInit(): void {
+
+
+    
 
     this.authService.handleRedirectObservable().subscribe();
     this.isIframe = window !== window.parent && !window.opener; // Remove this line to use Angular Universal
@@ -151,5 +168,6 @@ export class AppComponent implements OnInit, OnDestroy {
     this._destroying$.complete();
   }
 
-  
+
+ 
 }
