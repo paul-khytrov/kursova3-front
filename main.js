@@ -6,21 +6,18 @@ function createWindow() {
   }
 
   app.whenReady().then(() => {
-
-     // Ensure your custom protocol is properly registered
+   
  
     createWindow()
+    protocol.registerHttpProtocol('msalea250112-1b5a-4e78-9472-d2d6d5f1efb5', (request, callback) => {
+      const url = new URL(request.url);
+      console.log(url.hash)
+      // Send the code to your renderer process
+     
+    });
+
+    
+   
   })
 
-  app.on('open-url', (event, url) => {
-    dialog.showMessageBox('Received URL:', url)
-    // event.preventDefault();
-    // console.log('Received URL:', url);
-  
-    // // Extract the code from the URL hash
-    // const code = new URL(url).hash.split('=')[1];
-    // console.log('Extracted Code:', code);
-  
-    // // Send the code to the renderer process (Angular app)
-    // mainWindow.webContents.send('auth-code', code);
-  });
+ 

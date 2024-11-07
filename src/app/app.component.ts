@@ -45,7 +45,15 @@ export class AppComponent implements OnInit, OnDestroy {
     private msalBroadcastService: MsalBroadcastService
   ) {}
 
+  loggedIn = true;
+  
   ngOnInit(): void {
+
+    
+
+
+
+
     this.authService.handleRedirectObservable().subscribe();
     this.isIframe = window !== window.parent && !window.opener; // Remove this line to use Angular Universal
 
@@ -142,4 +150,6 @@ export class AppComponent implements OnInit, OnDestroy {
     this._destroying$.next(undefined);
     this._destroying$.complete();
   }
+
+  
 }
