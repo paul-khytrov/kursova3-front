@@ -31,7 +31,7 @@ const isIE =
 
 
 @NgModule({
-  declarations: [MultiSelectDropdownComponent, LecturersComponent],
+  declarations: [],
   imports: [
     
     MultiSelectDropdownComponent,

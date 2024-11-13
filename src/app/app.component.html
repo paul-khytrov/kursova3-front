@@ -3,11 +3,11 @@
 
 <div class="header-wrapper">
 <div class="logo">
-  <p class="title" href="/">{{ title }}</p>
+  
 </div>
 
 <div class="btn">
-  <button (click)="loginRedirect()">Війти</button>
+  <button  (click)="loginHandler()">Login</button>
 </div>
 
     <a [routerLink]="['home']"  class="linker">Головна</a>
@@ -17,13 +17,13 @@
     
 </div>
 
-  <button (click)="loginRedirect()">Login using Redirect</button>
+
 
 <!--
 
 
     
-    <button  (click)="loginPopup()">Login using Popup</button>
+    
 
 
 
@@ -38,9 +38,8 @@
 
 <div class="container">
   <!--This is to avoid reload during acquireTokenSilent() because of hidden iframe -->
-  @if (!isIframe) {
   <router-outlet></router-outlet>
-  }
+  
 </div>
 
 </body>

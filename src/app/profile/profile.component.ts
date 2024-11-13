@@ -9,5 +9,11 @@ import { Component } from '@angular/core';
   styleUrl: './profile.component.css'
 })
 export class ProfileComponent {
-
+  stud = {
+    name:"Хитров Павло",
+    faculty:"КРКТ",
+    group:"ФЕІ-35",
+    email:"email@email.com",
+    phone:"880005553555"
+  }
 }

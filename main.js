@@ -1,28 +1,77 @@
-const { app, BrowserWindow, protocol, dialog } = require('electron');
-const { ipcMain } = require('electron');
-const path = require('path');
+/*
+ * Copyright (c) Microsoft Corporation. All rights reserved.
+ * Licensed under the MIT License.
+ */
+
+const path = require("path");
+const { app, ipcMain, ipcRenderer, BrowserWindow } = require("electron");
+
+const AuthProvider = require("./AuthProvider");
+const { IPC_MESSAGES } = require("./constants");
+const { protectedResources, msalConfig } = require("./authConfig");
+const getGraphClient = require("./graph");
+
+let authProvider;
+let mainWindow;
 
 function createWindow() {
-    win = new BrowserWindow({width: 800, height: 800, preload: path.join(__dirname, 'preload.js'),webPreferences: {
-      nodeIntegration: true,
-  }});
-    win.loadFile('dist/kursova/browser/index.html');
-  }
-
-  app.whenReady().then(() => {
-   
- 
-    createWindow()
-    protocol.registerHttpProtocol('msalea250112-1b5a-4e78-9472-d2d6d5f1efb5', (request, callback) => {
-      const url = new URL(request.url);
-      console.log(url.hash)
-      win.webContents.on('did-finish-load', ()=>{
-        win.webContents.send('authcode', url.hash);
-      })
-     
+    mainWindow = new BrowserWindow({
+        width: 800,
+        height: 600,
+        webPreferences: { preload: path.join(__dirname, "preload.js") , nodeIntegration: true,
+        contextIsolation: false},
     });
 
- 
-  })
+    authProvider = new AuthProvider(msalConfig);
+}
 
- 
+app.on("ready", () => {
+    createWindow();
+    mainWindow.loadFile('dist/kursova/browser/index.html');
+});
+
+app.on("window-all-closed", () => {
+    app.quit();
+});
+
+app.on('activate', () => {
+    // On OS X it's common to re-create a window in the app when the
+    // dock icon is clicked and there are no other windows open.
+    if (BrowserWindow.getAllWindows().length === 0) {
+        createWindow();
+    }
+});
+
+
+// Event handlers
+ipcMain.on(IPC_MESSAGES.LOGIN, async () => {
+    const account = await authProvider.login();
+    console.log(account)
+    mainWindow.webContents.send("LOGIN_RESPONSE", account)
+    //await mainWindow.loadFile(path.join(__dirname, "./index.html"));
+    
+    //mainWindow.webContents.send(IPC_MESSAGES.SHOW_WELCOME_MESSAGE, account);
+});
+
+ipcMain.on(IPC_MESSAGES.LOGOUT, async () => {
+    await authProvider.logout();
+
+    //await mainWindow.loadFile(path.join(__dirname, "./index.html"));
+});
+
+ipcMain.on(IPC_MESSAGES.GET_PROFILE, async () => {
+    const tokenRequest = {
+        scopes: protectedResources.graphMe.scopes
+    };
+
+    const tokenResponse = await authProvider.getToken(tokenRequest);
+    const account = authProvider.account;
+
+    await mainWindow.loadFile(path.join(__dirname, "./index.html"));
+
+    const graphResponse = await getGraphClient(tokenResponse.accessToken)
+        .api(protectedResources.graphMe.endpoint).get();
+
+    //mainWindow.webContents.send(IPC_MESSAGES.SHOW_WELCOME_MESSAGE, account);
+    //mainWindow.webContents.send(IPC_MESSAGES.SET_PROFILE, graphResponse);
+});

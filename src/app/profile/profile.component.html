@@ -1,2 +1,18 @@
-<p>profile works!</p>
-<div style="background-color:yellow; width:100px; height: 100px;"></div>
+
+<div class="main-profile-wrapper">
+    <img src="">
+    <span class="stud-misc">{{ stud.name }}</span>
+    <span class="stud-misc">Студент кафедри {{stud.faculty }}, {{ stud.group }} </span>
+</div>
+
+<div class="info-wrapper">
+    <span class="stud-misc">Пошта: {{ stud.email }}</span>
+    <span class="stud-misc">Телефон: {{ stud.phone }}</span>
+</div>
+
+<div class="requests-wrapper">
+    <div class="request-item">
+        <span class="lecturer-name">Хвищун Іван Олександрович</span>
+        <span class="status">Підтверджено</span>
+    </div>
+</div>
