@@ -6,38 +6,24 @@
   
 </div>
 
-<div class="btn">
-  <button  (click)="loginHandler()">Login</button>
-</div>
+
 
     <a [routerLink]="['home']"  class="linker">Головна</a>
     <a [routerLink]="['lecturers']"  class="linker">Викладачі</a>
     <a [routerLink]="['profile']"  class="linker">Профіль</a>
+    <button  (click)="logoutHandler()">Log out</button>
 
     
 </div>
+<div class="login-handler" [hidden]="loggedIn == true">
+  <div class="btn">
+    <button  (click)="loginHandler()">Login</button>
+  </div>
+</div>
 
 
-
-<!--
-
-
-    
-    
-
-
-
-    <button (click)="logout()">Logout using Redirect</button>
-    <button (click)="logout(true)">Logout using Popup</button>
-
-
-
--->
-    
-
-
-<div class="container">
-  <!--This is to avoid reload during acquireTokenSilent() because of hidden iframe -->
+<div class="container" *ngIf="loggedIn == true">
+  
   <router-outlet></router-outlet>
   
 </div>

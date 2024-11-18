@@ -51,14 +51,26 @@ export class AppComponent implements OnInit, OnDestroy {
     this.ipcR.send("LOGIN")
   }
 
+  logoutHandler()
+  {
+    this.ipcR.send("LOGOUT")
+  }
   
   temp: any;
-  
+  loggedIn!: boolean;
+
+
   ngOnInit(): void {
 
   this.ipcR.on("LOGIN_RESPONSE", (listener, acc)=>{
+    this.loggedIn = true;
     this.temp = acc;
     console.log(acc)
+
+  })
+  this.ipcR.on("LOGOUT_RESPONSE", (listener)=>{
+    this.loggedIn = false;
+
   })
     
 

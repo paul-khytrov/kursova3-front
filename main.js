@@ -21,7 +21,7 @@ function createWindow() {
         webPreferences: { preload: path.join(__dirname, "preload.js") , nodeIntegration: true,
         contextIsolation: false},
     });
-
+    mainWindow.removeMenu()
     authProvider = new AuthProvider(msalConfig);
 }
 
@@ -55,7 +55,7 @@ ipcMain.on(IPC_MESSAGES.LOGIN, async () => {
 
 ipcMain.on(IPC_MESSAGES.LOGOUT, async () => {
     await authProvider.logout();
-
+    mainWindow.webContents.send("LOGOUT_RESPONSE")
     //await mainWindow.loadFile(path.join(__dirname, "./index.html"));
 });
 
