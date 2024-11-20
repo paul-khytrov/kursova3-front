@@ -56,8 +56,23 @@
   text-align: center; 
 }
 
-button {
-   margin-top: 20px;
+
+
+/* дізейблед, сірий фон */
+button:disabled {
+  background-color: rgb(162, 162, 162);
+  color: white;
+  cursor: not-allowed;
+  box-shadow: none;
+  border: none;
+  margin-top: 20px;
+   padding: 12px 28px;
+   border-radius: 20px;
+}
+
+/* синій фон */
+button.free {
+  margin-top: 20px;
    padding: 12px 28px;
    cursor: pointer;
    background-color: transparent; 
@@ -66,14 +81,25 @@ button {
    border-radius: 20px;
    box-shadow: 0 2px 4px #c1ccf0; 
    font-size: 14px; 
-   transition: background-color 0.3s ease, transform 0.2s, color 0.3s ease; 
+   transition: background-color 0.3s ease, transform 0.2s, color 0.3s ease;
 }
-button:disabled {
-   background-color: #afafb1; 
-   color: white; 
-   transform: translateY(-2px);
+
+/* запит надіслано, зелений фон */
+button.requested {
+  background-color: green;
+  color: white;
+  margin-top: 20px;
+  padding: 12px 28px;
+  cursor: pointer;
+  background-color: transparent;
+  border: 1px solid #39bc42;
+  border-radius: 20px;
+  box-shadow: 0 2px 4px #22632b;
+  font-size: 14px;
+  transition: background-color 0.3s ease, transform 0.2s, color 0.3s ease;
 }
-button:hover {
+
+button.free:hover {
    background-color: #5d79cc; 
    color: white; 
    transform: translateY(-2px);
@@ -134,3 +160,9 @@ button:active {
  .dropdown-check-list.visible .items {
    display: block;
  }
+
+
+ 
+
+
+

@@ -19,9 +19,14 @@ body{
     box-shadow: 0 4px 6px rgba(126, 126, 126, 0.1); 
   }
   
-  .logo {
+ .logo{
     margin-right: auto; 
-    color: rgb(59, 59, 59);
+ }
+
+  .logo img {
+
+    width: 80px; /* Ширина зображення */
+    height: auto; /* Пропорційна висота, залежно від ширини */
   }
 
   .title {

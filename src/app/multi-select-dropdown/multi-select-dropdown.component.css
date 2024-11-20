@@ -1,28 +1,69 @@
+
+
+  /* Стиль для контейнера випадаючого списку */
 .dropdown {
-    position: relative;
-    display: inline-block;
-  }
-  
-  .dropdown-menu {
-    position: absolute;
-    background-color: white;
-    min-width: 160px;
-    border: 1px solid #ddd;
-    padding: 10px;
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-    z-index: 100;
-  }
-  
-  .dropdown-toggle {
-    background-color: #4CAF50;
-    color: white;
-    padding: 8px;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .dropdown-menu label {
-    display: block;
-    padding: 5px 10px;
-  }
-  
+  position: relative;
+  display: inline-block;
+  font-family: Arial, sans-serif;
+  margin-bottom: 20px;
+}
+
+/* Стиль для кнопки випадаючого списку */
+.dropdown .dropdown-toggle {
+  color: rgb(75, 75, 75);
+  padding: 8px 12px;
+  font-size: 14px;
+  cursor: pointer;
+  border: 1px solid rgb(75, 75, 75); /* Толщина, стиль и цвет обводки */
+  border-radius: 20px; /* Закругленные углы */
+  background-color: white;
+  padding: 14px 24px 14px 24px;
+  transition: background-color 0.3s ease;
+}
+
+.dropdown .dropdown-toggle:hover {
+  background-color: rgb(158, 158, 158); 
+}
+
+/* випадаюче меню */
+.dropdown .dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 8px;
+  margin-top: 4px;
+  width: 100%;
+  max-width: 200px; 
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+/* опції з чекбоксами */
+.dropdown .dropdown-menu label {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  padding: 4px 0;
+  cursor: pointer;
+  color: #333;
+  transition: background-color 0.2s ease;
+}
+
+.dropdown .dropdown-menu label:hover {
+  background-color: #f0f0f0;
+}
+
+/* чекбокси */
+.dropdown .dropdown-menu input[type="checkbox"] {
+  margin-right: 8px;
+  accent-color: rgb(185, 185, 185);
+}
+
+.dropdown .dropdown-menu input[type="checkbox"]:checked + label::before {
+  content: '✓';
+  font-size: 12px;
+  color: white;
+}

@@ -1,0 +1,169 @@
+/* Загальний контейнер для центрування */
+body {
+   display: flex;
+   flex-direction: column;
+   align-items: center; /* Центруємо блоки по горизонталі */
+   justify-content: flex-start; /* Центруємо блоки по вертикалі (від верхнього краю) */
+   min-height: 100vh; /* Висота мінімальна 100% від вікна браузера */
+   margin: 0; /* Відсутність відступів */
+   padding: 0;
+ }
+ 
+ /* Основні стилі для всіх блоків */
+ .main-profile-wrapper,
+ .info-wrapper,
+ .requests-wrapper {
+   width: 100%; /* Розтягуємо елементи на всю ширину */
+   max-width: 600px; /* Обмеження максимального розміру */
+   margin: 10px auto; /* Відступи знизу та згори, і центрування блоків по горизонталі */
+ }
+ 
+ /* Стилі для основного профілю */
+ .main-profile-wrapper {
+   display: flex;
+   gap: 15px;
+   padding: 15px;
+   border: 0.5px solid #dbddff;
+   border-radius: 10px;
+   box-shadow: 0 5px 8px #f0f1ff;
+   width: 100%; /* Забезпечуємо, що блок займатиме всю доступну ширину */
+   max-width: 600px; /* Обмеження максимальної ширини */
+   margin: 10px auto; /* Центруємо блок */
+ }
+ 
+ .main-profile-wrapper img {
+   width: 100px;
+   height: 100px;
+   border-radius: 50%;
+   object-fit: cover;
+   margin-right: 30px;
+ }
+ 
+ .main-profile-wrapper .stud-misc {
+   font-size: 14px;
+   color: #000000;
+   margin-top: 15px;
+ }
+ 
+ .main-profile-wrapper span {
+   display: block;
+ }
+ 
+ .text-wrapper {
+   display: flex;
+   flex-direction: column;
+   gap: 5px;
+ }
+ 
+ .main-profile-wrapper .inf .stud-misc:first-of-type {
+   font-weight: 500;
+   font-size: 18px;
+ }
+ 
+ .main-profile-wrapper .inf .stud-misc:last-of-type {
+   font-size: 10px;
+   color: #989898;
+   margin-top: 10px;
+ }
+ 
+ /* Стилі для персональних даних */
+ .info-wrapper {
+   display: flex;
+   flex-direction: column;
+   gap: 5px;
+   padding: 15px;
+   border: 0.5px solid #dbddff;
+   border-radius: 10px;
+   box-shadow: 0 5px 8px #f0f1ff;
+   width: 100%; /* Забезпечуємо, що блок займатиме всю доступну ширину */
+   max-width: 600px; /* Обмеження максимальної ширини */
+   margin: 10px auto; /* Центруємо блок */
+ }
+ 
+ .label_email-label, .label_phone-label {
+   margin-left: 10px;
+   font-size: 15px;
+   margin-top: 10px;
+   color: #989898;
+   font-weight: 650;
+ }
+ 
+ .info-wrapper .stud-misc {
+   font-size: 14px;
+   color: #000;
+   margin-left: 10px;
+ }
+ 
+ .info-wrapper .stud-misc:nth-child(2) {
+   margin-top: 0;
+ }
+ 
+ .info-wrapper .stud-misc:nth-child(1) {
+   margin-bottom: 5px;
+ }
+ 
+ /* Стилі для заявок */
+ .requests-wrapper {
+   display: flex;
+   flex-direction: column;
+   gap: 10px;
+   padding: 20px;
+   border: 0.5px solid #dbddff;
+   border-radius: 10px;
+   box-shadow: 0 5px 8px #f0f1ff;
+   width: 100%; /* Забезпечуємо, що блок займатиме всю доступну ширину */
+   max-width: 600px; /* Обмеження максимальної ширини */
+   margin: 10px auto; /* Центруємо блок */
+ }
+ 
+ .request-item {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+ }
+ 
+ .lecturer-name, .status {
+   font-size: 14px;
+   color: #000;
+ }
+ 
+ .status {
+   color: #4caf50;
+   font-weight: bold;
+ }
+ 
+ /* Стилі для p */
+ p {
+   font-size: 20px;
+   text-align: center; /* Центруємо текст всередині p */
+   margin: 30px 0 15px 0;
+   font-weight: 600;
+ }
+ 
+ /* Адаптивні стилі */
+ @media (max-width: 768px) {
+   body {
+     padding: 10px;
+   }
+ 
+   .main-profile-wrapper,
+   .info-wrapper,
+   .requests-wrapper {
+     width: 100%; /* Всі блоки займають 100% ширини на маленьких екранах */
+     margin: 10px auto; /* Центруємо блоки по горизонталі */
+   }
+ 
+   .lecturer-name, .status {
+     font-size: 12px;
+   }
+ 
+   .main-profile-wrapper .stud-misc {
+     font-size: 12px;
+   }
+ 
+   p {
+     font-size: 18px;
+   }
+ }
+ 
+

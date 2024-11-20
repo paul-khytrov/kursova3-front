@@ -1,13 +1,21 @@
 
+<p>Мій профіль</p>
 <div class="main-profile-wrapper">
-    <img src="">
-    <span class="stud-misc">{{ stud.name }}</span>
-    <span class="stud-misc">Студент кафедри {{stud.faculty }}, {{ stud.group }} </span>
+    
+    <img src="/images/student.jpg">
+    <div class="inf">
+        <span class="stud-misc">{{ stud.name }}</span>
+        <span class="stud-misc">Студент кафедри {{stud.faculty }}, {{ stud.group }} </span>
+    </div>
 </div>
 
+
+<p>Персональні дані</p>
 <div class="info-wrapper">
-    <span class="stud-misc">Пошта: {{ stud.email }}</span>
-    <span class="stud-misc">Телефон: {{ stud.phone }}</span>
+    <span class="label_email-label">Пошта:</span>
+    <span class="stud-misc">{{ stud.email }}</span>
+    <span class="label_phone-label">Телефон:</span>
+    <span class="stud-misc">{{ stud.phone }}</span>
 </div>
 
 <div class="requests-wrapper">
