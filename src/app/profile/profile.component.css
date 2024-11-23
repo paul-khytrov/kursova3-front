@@ -1,24 +1,24 @@
-/* Загальний контейнер для центрування */
+
 body {
    display: flex;
    flex-direction: column;
-   align-items: center; /* Центруємо блоки по горизонталі */
-   justify-content: flex-start; /* Центруємо блоки по вертикалі (від верхнього краю) */
-   min-height: 100vh; /* Висота мінімальна 100% від вікна браузера */
-   margin: 0; /* Відсутність відступів */
+   align-items: center;
+   justify-content: flex-start;
+   min-height: 100vh;
+   margin: 0;
    padding: 0;
  }
  
- /* Основні стилі для всіх блоків */
+ 
  .main-profile-wrapper,
  .info-wrapper,
  .requests-wrapper {
-   width: 100%; /* Розтягуємо елементи на всю ширину */
-   max-width: 600px; /* Обмеження максимального розміру */
-   margin: 10px auto; /* Відступи знизу та згори, і центрування блоків по горизонталі */
+   width: 100%;
+   max-width: 600px;
+   margin: 10px auto;
  }
  
- /* Стилі для основного профілю */
+
  .main-profile-wrapper {
    display: flex;
    gap: 15px;
@@ -26,9 +26,9 @@ body {
    border: 0.5px solid #dbddff;
    border-radius: 10px;
    box-shadow: 0 5px 8px #f0f1ff;
-   width: 100%; /* Забезпечуємо, що блок займатиме всю доступну ширину */
-   max-width: 600px; /* Обмеження максимальної ширини */
-   margin: 10px auto; /* Центруємо блок */
+   width: 100%; 
+   max-width: 600px; 
+   margin: 10px auto; 
  }
  
  .main-profile-wrapper img {
@@ -66,7 +66,7 @@ body {
    margin-top: 10px;
  }
  
- /* Стилі для персональних даних */
+
  .info-wrapper {
    display: flex;
    flex-direction: column;
@@ -75,16 +75,16 @@ body {
    border: 0.5px solid #dbddff;
    border-radius: 10px;
    box-shadow: 0 5px 8px #f0f1ff;
-   width: 100%; /* Забезпечуємо, що блок займатиме всю доступну ширину */
-   max-width: 600px; /* Обмеження максимальної ширини */
-   margin: 10px auto; /* Центруємо блок */
+   width: 100%; 
+   max-width: 600px; 
+   margin: 10px auto; 
  }
  
  .label_email-label, .label_phone-label {
    margin-left: 10px;
    font-size: 15px;
    margin-top: 10px;
-   color: #989898;
+   color: #8C96A8;
    font-weight: 650;
  }
  
@@ -102,7 +102,7 @@ body {
    margin-bottom: 5px;
  }
  
- /* Стилі для заявок */
+
  .requests-wrapper {
    display: flex;
    flex-direction: column;
@@ -111,9 +111,10 @@ body {
    border: 0.5px solid #dbddff;
    border-radius: 10px;
    box-shadow: 0 5px 8px #f0f1ff;
-   width: 100%; /* Забезпечуємо, що блок займатиме всю доступну ширину */
-   max-width: 600px; /* Обмеження максимальної ширини */
-   margin: 10px auto; /* Центруємо блок */
+   width: 100%;
+   max-width: 600px;
+   margin: 10px auto;
+   margin-bottom: 50px;
  }
  
  .request-item {
@@ -132,15 +133,15 @@ body {
    font-weight: bold;
  }
  
- /* Стилі для p */
+
  p {
    font-size: 20px;
-   text-align: center; /* Центруємо текст всередині p */
+   text-align: center; 
    margin: 30px 0 15px 0;
    font-weight: 600;
  }
  
- /* Адаптивні стилі */
+ 
  @media (max-width: 768px) {
    body {
      padding: 10px;
@@ -149,8 +150,8 @@ body {
    .main-profile-wrapper,
    .info-wrapper,
    .requests-wrapper {
-     width: 100%; /* Всі блоки займають 100% ширини на маленьких екранах */
-     margin: 10px auto; /* Центруємо блоки по горизонталі */
+     width: 100%;
+     margin: 10px auto;
    }
  
    .lecturer-name, .status {

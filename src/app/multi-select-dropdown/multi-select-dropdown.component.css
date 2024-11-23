@@ -1,6 +1,6 @@
 
 
-  /* Стиль для контейнера випадаючого списку */
+
 .dropdown {
   position: relative;
   display: inline-block;
@@ -8,14 +8,14 @@
   margin-bottom: 20px;
 }
 
-/* Стиль для кнопки випадаючого списку */
+
 .dropdown .dropdown-toggle {
   color: rgb(75, 75, 75);
   padding: 8px 12px;
   font-size: 14px;
   cursor: pointer;
-  border: 1px solid rgb(75, 75, 75); /* Толщина, стиль и цвет обводки */
-  border-radius: 20px; /* Закругленные углы */
+  border: 1px solid rgb(75, 75, 75); 
+  border-radius: 20px; 
   background-color: white;
   padding: 14px 24px 14px 24px;
   transition: background-color 0.3s ease;
